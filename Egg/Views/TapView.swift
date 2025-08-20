@@ -10,6 +10,7 @@ import SwiftUI
 struct TapView: View {
     @State var cracked = false;
     @State var cooked = false;
+    @State var egged = false;
     @State var img = "egg"
     
     let singleTapGesture = TapGesture()
@@ -22,7 +23,10 @@ struct TapView: View {
             .onEnded {
                 withAnimation {
                     cracked=true
-                    img = "cracked egg"
+                    if(!egged){
+                        egged = true
+                        img = "cracked egg"
+                    }
                 }
             }
     }
@@ -30,7 +34,7 @@ struct TapView: View {
         TapGesture(count: 2)
             .onEnded {
                 withAnimation {
-                    if(cracked){
+                    if(cracked && !cooked){
                         cooked=true
                         img = "cooking egg"
                     }
@@ -43,7 +47,7 @@ struct TapView: View {
                 withAnimation {
                     if(cooked){
                         img = "cooked egg"
-                        cooked=false
+                        cracked = false
                     }
                 }
             }
@@ -75,7 +79,7 @@ struct TapView: View {
                     .gesture(tapGesture)
                     .gesture(doubleTap)
                     .gesture(longPress)
-                    .scaleEffect(cracked ? 1 : 0.4)
+                    .scaleEffect(egged ? 1 : 0.4)
                     .padding(.bottom, 200)
                     .padding(.leading, 150)
                 Spacer()

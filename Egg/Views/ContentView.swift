@@ -39,7 +39,7 @@ struct ContentView: View {
                     if(cracked && !cooked){
                         cooked=true
                         img = "cooking egg"
-                        stepText = "Long press on the egg to cook it!"
+                        stepText = "      Long press on the egg to cook!"
                     }
                 }
             }
@@ -93,6 +93,7 @@ struct ContentView: View {
                     .padding(20)
                     .padding(.horizontal, 60)
                     .font(.title3)
+                    .multilineTextAlignment(.center)
             }
         }
         

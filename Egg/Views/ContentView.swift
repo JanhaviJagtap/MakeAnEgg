@@ -84,7 +84,7 @@ struct ContentView: View {
                     .gesture(doubleTap)
                     .gesture(longPress)
                     .scaleEffect(egged ? 1 : 0.4)
-                    .padding(.bottom, 180)
+                    .padding(.bottom, 175)
                     .padding(.leading, 150)
                 Spacer()
                 Text(stepText)

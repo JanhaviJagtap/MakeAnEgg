@@ -65,13 +65,16 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFit()
                 .rotationEffect(.degrees(-30))
-                .frame(width: 700)
+                .frame(width: 680)
             VStack(alignment: .center){
                 Text("Lets cook an Omelette!!")
                     .fontWeight(.heavy)
-                    .foregroundStyle(.black)
+                    .frame(maxWidth: .infinity)
+                    .foregroundStyle(.yellow)
                     .padding(20)
                     .font(.title2)
+                    .background(Color.black)
+                    .opacity(0.8)
                 
                 Spacer()
                 Image(img)
